@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Pgvector;
 
-namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Models;
+namespace DotNetTalk.AI.Profile.Finder.Gateways.Pg.Models;
 
 public class PersonPersistence
 {
@@ -18,9 +20,10 @@ public class PersonPersistence
     public string? JobTitle { get; set; }
     
     public string? Bio { get; set; }
-    
-    public string? Embedding { get; set; }
-    
+
+    [Column(TypeName = "vector(768)")]
+    public Vector? Embedding { get; set; }
+
     public virtual List<PersonCompanyPersistence> PersonCompanies { get; set; } = [];
     
     public virtual List<TravelPersistence> Travels { get; set; } = [];

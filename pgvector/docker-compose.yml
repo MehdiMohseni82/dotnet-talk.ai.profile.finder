@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    image: ankane/pgvector:latest
+    container_name: postgres-pgvector
+    environment:
+      POSTGRES_DB: profilefinderdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

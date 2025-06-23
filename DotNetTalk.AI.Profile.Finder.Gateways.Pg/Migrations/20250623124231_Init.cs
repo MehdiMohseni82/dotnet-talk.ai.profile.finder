@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using Pgvector;
 
 #nullable disable
 
-namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Migrations
+namespace DotNetTalk.AI.Profile.Finder.Gateways.Pg.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration
@@ -15,11 +17,11 @@ namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Migrations
                 name: "Companies",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Industry = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Industry = table.Column<string>(type: "text", nullable: true),
+                    Address = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,15 +32,15 @@ namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Migrations
                 name: "People",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    JobTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Embedding = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FirstName = table.Column<string>(type: "text", nullable: false),
+                    LastName = table.Column<string>(type: "text", nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Gender = table.Column<string>(type: "text", nullable: true),
+                    JobTitle = table.Column<string>(type: "text", nullable: true),
+                    Bio = table.Column<string>(type: "text", nullable: true),
+                    Embedding = table.Column<Vector>(type: "vector(768)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,13 +51,13 @@ namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Migrations
                 name: "Insurances",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    InsuranceType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Provider = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ValidFrom = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ValidTo = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    InsuranceType = table.Column<string>(type: "text", nullable: false),
+                    Provider = table.Column<string>(type: "text", nullable: false),
+                    ValidFrom = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ValidTo = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    PersonId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,13 +74,13 @@ namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Migrations
                 name: "PersonCompanies",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CompanyId = table.Column<int>(type: "int", nullable: false),
-                    JobTitleAtCompany = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FromDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ToDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CompanyId = table.Column<int>(type: "integer", nullable: false),
+                    JobTitleAtCompany = table.Column<string>(type: "text", nullable: true),
+                    FromDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ToDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    PersonId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,14 +103,14 @@ namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Migrations
                 name: "Travels",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DestinationCountry = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DestinationCity = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Purpose = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DestinationCountry = table.Column<string>(type: "text", nullable: false),
+                    DestinationCity = table.Column<string>(type: "text", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Purpose = table.Column<string>(type: "text", nullable: true),
+                    PersonId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

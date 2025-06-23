@@ -1,7 +1,7 @@
-﻿using DotNetTalk.AI.Profile.Finder.Gateways.Sql.Models;
+﻿using DotNetTalk.AI.Profile.Finder.Gateways.Pg.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql;
+namespace DotNetTalk.AI.Profile.Finder.Gateways.Pg;
 
 public class AiProfileFinderDbContext : DbContext
 {

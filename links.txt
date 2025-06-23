@@ -1,0 +1,1 @@
+https://huggingface.co/onnx-models/all-mpnet-base-v2-onnx/tree/main

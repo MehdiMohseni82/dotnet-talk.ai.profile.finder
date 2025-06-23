@@ -9,14 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.*" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
+    <PackageReference Include="Pgvector" Version="0.3.2" />
+    <PackageReference Include="Pgvector.EntityFrameworkCore" Version="0.2.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DotNetTalk.AI.Profile.Finder.Common\DotNetTalk.AI.Profile.Finder.Common.csproj" />
-    <ProjectReference Include="..\DotNetTalk.AI.Profile.Finder.Gateways.Sql\DotNetTalk.AI.Profile.Finder.Gateways.Sql.csproj" />
+    <ProjectReference Include="..\DotNetTalk.AI.Profile.Finder.Gateways.Pg\DotNetTalk.AI.Profile.Finder.Gateways.Pg.csproj" />
   </ItemGroup>
 
 </Project>

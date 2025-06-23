@@ -1,4 +1,4 @@
-using DotNetTalk.AI.Profile.Finder.Gateways.Sql;
+using DotNetTalk.AI.Profile.Finder.Gateways.Pg;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AiProfileFinderDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ProfileFinderDb"))
+        options.UseNpgsql(builder.Configuration.GetConnectionString("ProfileFinderDb"), o => o.UseVector())
 );
 
 var app = builder.Build();

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DotNetTalk.AI.Profile.Finder.Gateways.Sql.Models;
+namespace DotNetTalk.AI.Profile.Finder.Gateways.Pg.Models;
 
 public class InsurancePersistence
 {

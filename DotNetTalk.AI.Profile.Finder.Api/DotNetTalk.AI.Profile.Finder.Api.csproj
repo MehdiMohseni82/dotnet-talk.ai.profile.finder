@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DotNetTalk.AI.Profile.Finder.Common\DotNetTalk.AI.Profile.Finder.Common.csproj" />
     <ProjectReference Include="..\DotNetTalk.AI.Profile.Finder.Gateways.Pg\DotNetTalk.AI.Profile.Finder.Gateways.Pg.csproj" />
+    <ProjectReference Include="..\DotNetTalk.AI.Profile.Finder.ML\DotNetTalk.AI.Profile.Finder.ML.csproj" />
   </ItemGroup>
 
 </Project>

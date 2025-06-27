@@ -1,9 +1,14 @@
 using DotNetTalk.AI.Profile.Finder.Gateways.Pg;
+using DotNetTalk.AI.Profile.Finder.ML;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.Configure<EmbeddingServiceConfig>(builder.Configuration.GetSection("EmbeddingService"));
+
 // Add services to the container.
+builder.Services.AddTransient<IEmbeddingService, EmbeddingService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

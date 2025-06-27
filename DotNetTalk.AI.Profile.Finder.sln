@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTalk.AI.Profile.Finde
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTalk.AI.Profile.Finder.Gateways.Pg", "DotNetTalk.AI.Profile.Finder.Gateways.Pg\DotNetTalk.AI.Profile.Finder.Gateways.Pg.csproj", "{2CAE492D-BD58-7ED4-9DA4-7A4DE4CA8E88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTalk.AI.Profile.Finder.ML", "DotNetTalk.AI.Profile.Finder.ML\DotNetTalk.AI.Profile.Finder.ML.csproj", "{3E97FE10-CDDF-4676-96AC-78C70D29632D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2CAE492D-BD58-7ED4-9DA4-7A4DE4CA8E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CAE492D-BD58-7ED4-9DA4-7A4DE4CA8E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CAE492D-BD58-7ED4-9DA4-7A4DE4CA8E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E97FE10-CDDF-4676-96AC-78C70D29632D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E97FE10-CDDF-4676-96AC-78C70D29632D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E97FE10-CDDF-4676-96AC-78C70D29632D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E97FE10-CDDF-4676-96AC-78C70D29632D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
